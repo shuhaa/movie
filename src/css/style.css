@@ -1,0 +1,786 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+     Убираем внутренние отступы слева тегам списков,
+     у которых есть атрибут class
+    */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+     Убираем внешние отступы body и двум другим тегам,
+     у которых есть атрибут class
+    */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+     Убираем внешние отступы вертикали нужным тегам,
+     у которых есть атрибут class
+    */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+     Убираем стандартный маркер маркированному списку,
+     у которого есть атрибут class
+    */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+     Обнуляем вертикальные внешние отступы параграфа,
+     объявляем локальную переменную для внешнего отступа вниз,
+     чтобы избежать взаимодействие с более сложным селектором
+    */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+     Внешний отступ вниз для параграфа без атрибута class,
+     который расположен не последним среди своих соседних элементов
+    */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+     Упрощаем работу с изображениями и видео
+    */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+     Наследуем свойства шрифт для полей ввода
+    */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+       Пригодится в большинстве ситуаций
+       (когда, например, нужно будет "прижать" футер к низу сайта)
+      */
+  height: 100%;
+  /**
+       Убираем скачок интерфейса по горизонтали
+       при появлении / исчезновении скроллбара
+      */
+  scrollbar-gutter: stable;
+}
+
+/**
+     Плавный скролл
+    */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+       Пригодится в большинстве ситуаций
+       (когда, например, нужно будет "прижать" футер к низу сайта)
+      */
+  min-height: 100%;
+  /**
+       Унифицированный интерлиньяж
+      */
+  line-height: 1.5;
+  font-family: "Georgia", serif;
+}
+
+/**
+     Нормализация высоты элемента ссылки при его инспектировании в DevTools
+    */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+     Курсор-рука при наведении на элемент
+    */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+     Приводим к единому цвету svg-элементы
+    */
+[fill] {
+  fill: currentColor;
+}
+
+[stroke] {
+  stroke: currentColor;
+}
+
+/**
+     Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+    */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+     Удаляем все анимации и переходы для людей,
+     которые предпочитают их не использовать
+    */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  background-color: #333333;
+}
+body .header {
+  width: 100%;
+  min-width: 100%;
+}
+body .header .pagination {
+  position: absolute;
+  width: 50px;
+  top: 320px;
+  left: 50%;
+  font-size: 27px;
+  padding-bottom: 2rem;
+}
+@media (max-width: 1024px) {
+  body .header .pagination {
+    top: 280px;
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 768px) {
+  body .header .pagination {
+    top: 220px;
+    padding-bottom: 0;
+  }
+}
+body .header .pagination button {
+  background-color: #ffcd00;
+  border-radius: 2px;
+  border: 1px solid #ffcd00;
+  margin-right: 5px;
+  width: 20px;
+  height: 25px;
+  font-size: 18px;
+}
+body .header__text {
+  background-color: #ff3f01;
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+}
+body .header__text img {
+  position: relative;
+  left: 180px;
+  top: 120px;
+}
+@media (max-width: 1024px) {
+  body .header__text img {
+    top: 100px;
+    left: 90px;
+  }
+}
+@media (max-width: 768px) {
+  body .header__text img {
+    width: 50px;
+    height: 50px;
+    top: 65px;
+    left: 30px;
+  }
+}
+@media (max-width: 425px) {
+  body .header__text img {
+    width: 35px;
+    height: 35px;
+    top: 60px;
+  }
+}
+@media (max-width: 375px) {
+  body .header__text img {
+    top: 60px;
+    left: 40px;
+  }
+}
+body .header__text p {
+  color: white;
+  text-align: center;
+  margin-top: 0;
+  padding-bottom: 2rem;
+  font-weight: 500;
+  font-size: 18px;
+}
+@media (max-width: 768px) {
+  body .header__text p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 425px) {
+  body .header__text p {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+@media (max-width: 375px) {
+  body .header__text p {
+    font-size: 14px;
+  }
+}
+body .header__text h1 {
+  color: #ffc600;
+  text-align: center;
+  font-size: 70px;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  padding-top: 1.5rem;
+  margin-top: 0;
+}
+@media (max-width: 1440px) {
+  body .header__text h1 {
+    font-size: 60px;
+  }
+}
+@media (max-width: 1024px) {
+  body .header__text h1 {
+    font-size: 45px;
+  }
+}
+@media (max-width: 768px) {
+  body .header__text h1 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 425px) {
+  body .header__text h1 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+}
+body .header__filter {
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+  width: 400px;
+}
+@media (max-width: 1440px) {
+  body .header__filter {
+    margin-top: 7%;
+  }
+}
+@media (max-width: 1024px) {
+  body .header__filter {
+    margin-left: 10%;
+    margin-top: 10%;
+    width: 100px;
+  }
+}
+@media (max-width: 768px) {
+  body .header__filter {
+    margin-right: 0;
+    margin-top: 0;
+    margin-top: 100px;
+  }
+}
+@media (max-width: 500px) {
+  body .header__filter {
+    top: 60%;
+  }
+}
+@media (max-width: 425px) {
+  body .header__filter {
+    margin-left: 10px;
+    top: 60%;
+  }
+}
+@media (max-width: 375px) {
+  body .header__filter {
+    margin-left: 0;
+    top: 60%;
+  }
+}
+body .header__filter ul {
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 768px) {
+  body .header__filter ul {
+    padding: 0;
+  }
+}
+body .header__filter ul li {
+  display: grid;
+  padding-right: 5px;
+  list-style: none;
+  color: hsl(47, 100%, 50%);
+}
+body .header__filter ul li select {
+  background-color: rgba(97, 97, 97, 0.3);
+  border: 1px solid 616161;
+  color: white;
+  border-radius: 5px;
+  width: 100px;
+}
+@media (max-width: 768px) {
+  body .header__filter ul li select {
+    font-size: 14px;
+    width: 70px;
+  }
+}
+body .header__filter button {
+  width: 160px;
+  height: 30px;
+  background-color: #ffc600;
+  border: 1px solid #616161;
+  color: black;
+  border-radius: 5px;
+}
+@media (max-width: 1024px) {
+  body .header__filter button {
+    font-size: 14px;
+    width: 150px;
+  }
+}
+body .header__about {
+  position: relative;
+  left: 65%;
+  margin-top: 5%;
+  border: 3px solid #616161;
+  background-color: rgba(97, 97, 97, 0.3);
+  border-radius: 5px;
+  width: 500px;
+  height: auto;
+}
+@media (max-width: 1440px) {
+  body .header__about {
+    width: 400px;
+    height: auto;
+    left: 63%;
+  }
+}
+@media (max-width: 1024px) {
+  body .header__about {
+    width: 700px;
+    height: auto;
+    left: 23px;
+  }
+}
+@media (max-width: 760px) {
+  body .header__about {
+    width: 500px;
+    height: auto;
+    left: 40px;
+  }
+}
+@media (max-width: 500px) {
+  body .header__about {
+    width: 400px;
+    height: auto;
+    left: 20px;
+  }
+}
+@media (max-width: 425px) {
+  body .header__about {
+    width: 300px;
+    left: 15px;
+  }
+}
+body .header__about p {
+  text-align: justify;
+  color: white;
+  padding: 15px;
+}
+body .main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 4rem;
+  margin-left: 10rem;
+  position: absolute;
+  top: 500px;
+}
+@media (max-width: 1440px) {
+  body .main {
+    margin-left: 1rem;
+  }
+}
+@media (max-width: 1024px) {
+  body .main {
+    top: 830px;
+    margin-left: 0.5rem;
+  }
+}
+@media (max-width: 768px) {
+  body .main {
+    margin-left: 5rem;
+    top: 850px;
+    gap: 2rem;
+  }
+}
+@media (max-width: 650px) {
+  body .main {
+    margin-left: 0;
+  }
+}
+@media (max-width: 425px) {
+  body .main {
+    top: 1050px;
+    margin-left: 0.2rem;
+  }
+}
+body .main__films-one {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  border: 1px solid transparent;
+}
+@media (max-width: 768px) {
+  body .main__films-one {
+    gap: 1rem;
+  }
+}
+@media (max-width: 425px) {
+  body .main__films-one {
+    gap: 0.7rem;
+  }
+}
+body .main__films-one a img {
+  width: 100px;
+  min-width: 100px;
+  height: 136px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 1rem;
+}
+@media (max-width: 768px) {
+  body .main__films-one a img {
+    margin-left: 0.7rem;
+  }
+}
+@media (max-width: 425px) {
+  body .main__films-one a img {
+    width: 62px;
+    min-width: 62px;
+    height: 92px;
+    margin-left: 0.5rem;
+  }
+}
+@media (max-width: 375px) {
+  body .main__films-one a img {
+    margin-left: 0.2rem;
+  }
+}
+body .main__films-one:hover {
+  background-color: rgba(97, 97, 97, 0.3);
+  border-radius: 10px;
+  border: 1px solid #616161;
+}
+body .main__films-text {
+  width: 500px;
+}
+@media (max-width: 1440px) {
+  body .main__films-text {
+    width: 400px;
+  }
+}
+@media (max-width: 1024px) {
+  body .main__films-text {
+    width: 300px;
+  }
+}
+@media (max-width: 768px) {
+  body .main__films-text {
+    width: 400px;
+  }
+}
+@media (max-width: 570px) {
+  body .main__films-text {
+    width: 300px;
+  }
+}
+@media (max-width: 480px) {
+  body .main__films-text {
+    width: 270px;
+  }
+}
+@media (max-width: 425px) {
+  body .main__films-text {
+    width: 275px;
+  }
+}
+@media (max-width: 375px) {
+  body .main__films-text {
+    width: 230px;
+  }
+}
+body .main__films-text h3 {
+  color: #ffcd00;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@media (max-width: 1440px) {
+  body .main__films-text h3 {
+    width: 400px;
+  }
+}
+@media (max-width: 1024px) {
+  body .main__films-text h3 {
+    width: 300px;
+  }
+}
+@media (max-width: 768px) {
+  body .main__films-text h3 {
+    width: 400px;
+  }
+}
+@media (max-width: 570px) {
+  body .main__films-text h3 {
+    width: 300px;
+  }
+}
+@media (max-width: 480px) {
+  body .main__films-text h3 {
+    width: 270px;
+  }
+}
+@media (max-width: 425px) {
+  body .main__films-text h3 {
+    font-size: 16px;
+    width: 275px;
+  }
+}
+@media (max-width: 375px) {
+  body .main__films-text h3 {
+    font-size: 14px;
+  }
+}
+@media (max-width: 375px) {
+  body .main__films-text h3 {
+    width: 230px;
+  }
+}
+body .main__films-text h4 {
+  color: white;
+  margin-top: 0;
+}
+@media (max-width: 1440px) {
+  body .main__films-text h4 {
+    width: 400px;
+  }
+}
+@media (max-width: 1024px) {
+  body .main__films-text h4 {
+    width: 300px;
+  }
+}
+@media (max-width: 768px) {
+  body .main__films-text h4 {
+    width: 400px;
+  }
+}
+@media (max-width: 570px) {
+  body .main__films-text h4 {
+    width: 300px;
+  }
+}
+@media (max-width: 480px) {
+  body .main__films-text h4 {
+    width: 270px;
+  }
+}
+@media (max-width: 425px) {
+  body .main__films-text h4 {
+    font-size: 14px;
+    width: 275px;
+  }
+}
+@media (max-width: 375px) {
+  body .main__films-text h4 {
+    width: 230px;
+  }
+}
+body .main__films-text .none {
+  display: none;
+}
+body .main__films-text a {
+  text-decoration: none;
+}
+body .main__films-text a p {
+  text-align: justify;
+  width: 500px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: white;
+  margin-bottom: 10px;
+}
+@media (max-width: 1440px) {
+  body .main__films-text a p {
+    width: 400px;
+  }
+}
+@media (max-width: 1024px) {
+  body .main__films-text a p {
+    width: 300px;
+  }
+}
+@media (max-width: 768px) {
+  body .main__films-text a p {
+    width: 400px;
+  }
+}
+@media (max-width: 570px) {
+  body .main__films-text a p {
+    width: 300px;
+  }
+}
+@media (max-width: 480px) {
+  body .main__films-text a p {
+    width: 280px;
+  }
+}
+@media (max-width: 425px) {
+  body .main__films-text a p {
+    width: 270px;
+  }
+}
+@media (max-width: 375px) {
+  body .main__films-text a p {
+    width: 230px;
+  }
+}
+body .main__films-grade {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: white;
+  font-weight: 500;
+  gap: 10px;
+  margin-top: 10px;
+  margin-right: 1rem;
+}
+@media (max-width: 1024px) {
+  body .main__films-grade {
+    gap: 5px;
+  }
+}
+@media (max-width: 768px) {
+  body .main__films-grade {
+    gap: 0px;
+    font-weight: 400;
+    margin-right: 0;
+    display: grid;
+    grid-template-rows: 10px 10px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+@media (max-width: 425px) {
+  body .main__films-grade {
+    gap: 0px;
+    font-weight: 400;
+    margin-right: 0;
+    display: grid;
+    grid-template-rows: 10px 10px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+body footer .pagination {
+  position: absolute;
+  top: 1670px;
+  left: 50%;
+  font-size: 27px;
+  padding-bottom: 2rem;
+}
+@media (max-width: 1024px) {
+  body footer .pagination {
+    top: 2000px;
+  }
+}
+@media (max-width: 768px) {
+  body footer .pagination {
+    top: 1900px;
+  }
+}
+@media (max-width: 425px) {
+  body footer .pagination {
+    top: 2050px;
+  }
+}
+@media (max-width: 375px) {
+  body footer .pagination {
+    top: 2050px;
+  }
+}
+body footer .pagination button {
+  background-color: #ffcd00;
+  border-radius: 2px;
+  border: 1px solid #ffcd00;
+  margin-right: 5px;
+  width: 20px;
+  height: 25px;
+  font-size: 18px;
+}
+
+.active {
+  background-color: orangered !important;
+  border: 1px solid orangered !important;
+}
+
+.hidden {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}/*# sourceMappingURL=style.css.map */

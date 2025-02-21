@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Фильмотека</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="icon" type="image/png" href="./images/icon.png" />
+    <meta
+      name="description"
+      content="Сайт для поиска фильмов жанра приключения."
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__text">
+        <img id="icon" src="./images/icon.png" width="70" height="70" alt="" />
+        <h1>ФИЛЬМОТЕКА</h1>
+        <p><i> из всех искусств для нас важнейшим является кино</i></p>
+      </div>
+
+      <section class="header__filter">
+        <ul>
+          <li>
+            <select id="year">
+              <option value="all">Год</option>
+              <option value="1985">1985</option>
+              <option value="1989">1989</option>
+              <option value="1991">1991</option>
+              <option value="2007">2007</option>
+              <option value="2013">2013</option>
+              <option value="2015">2015</option>
+              <option value="2017">2017</option>
+              <option value="2021">2021</option>
+              <option value="2023">2023</option>
+            </select>
+          </li>
+          <li>
+            <select id="country">
+              <option value="all">Страна</option>
+              <option value="США">США</option>
+              <option value="Болгария">Болгария</option>
+              <option value="Россия">Россия</option>
+              <option value="Германия">Германия</option>
+              <option value="Чехия">Чехия</option>
+            </select>
+          </li>
+          <li>
+            <select id="rating">
+              <option value="all">Рейтинг</option>
+              <option value="7.3">7.3</option>
+              <option value="7.4">7.4</option>
+              <option value="7.5">7.5</option>
+              <option value="7.8">7.8</option>
+              <option value="8.1">8.1</option>
+              <option value="8.2">8.2</option>
+              <option value="8.4">8.4</option>
+            </select>
+          </li>
+        </ul>
+        <button id="sort">Сортировать</button>
+      </section>
+      <div class="header__about">
+        <p>
+          Приключенческий фильм — остросюжетный вид игрового фильма,
+          соответствующий приключенческому роману в литературе. <br />
+
+          Для него характерна напряжённая, стремительно развёртывающаяся фабула,
+          основанная на приключении — неожиданном событии, нарушающем привычный
+          ход жизни, заключающем в себе потенциальную опасность и побуждающем
+          героя к действию.
+        </p>
+        <p>
+          В качестве опасности может фигурировать и объективная ситуация: война,
+          революция, освоение неведомых территорий, природные катастрофы, а
+          также личные мотивы: поиски сокровищ, месть, спасение.
+        </p>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- <div class="main__films"> -->
+      <div class="main__films-one">
+        <a href="./blocks/captainGrant/captainGrant.html">
+          <img src="./images/capitain-grant.webp" alt="" />
+        </a>
+        <div class="main__films-text">
+          <a href="./blocks/captainGrant/captainGrant.html">
+            <h3>В поисках капитана Гранта</h3>
+            <h4>1985</h4>
+            <p class="none">Болгария</p>
+            <p class="text">
+              Капитан Грант пустился в опасное плавание, чтобы основать вольное
+              шотландское поселение на островах Тихого океана. Но его корабль
+              терпит крушение, и лишь полуразмытая записка в бутылке доносит
+              обрывочные сведения о Гранте. Лорд Гленарван на свой страх и риск
+              отправляется на поиски, взяв с собой детей капитана - Мэри и
+              Роберта. Путь отважных путешественников лежит через острова
+              Атлантики, горы и пампасы Новой Зеландии и Австралии, просторы
+              Тихого океана, где их поджидают всевозможные приключения.
+            </p>
+          </a>
+        </div>
+        <div class="main__films-grade">
+          <p>8.2</p>
+          <img src="./images/star.png" alt="" width="20" height="20" />
+        </div>
+      </div>
+      <div class="main__films-one">
+        <a href="./blocks/dog/dog.html">
+          <img src="./images/dog.webp" alt="" />
+        </a>
+        <div class="main__films-text">
+          <a href="./blocks/dog/dog.html">
+            <h3>Невероятные приключения Гампи</h3>
+            <h4>2021</h4>
+            <p class="none">Чехия</p>
+            <p class="text">
+              История щенка по кличке Гампи, который ищет дом и свое место в
+              мире людей. Гампи мечтает найти верного друга и хозяина, но,
+              прежде чем это случится, ему предстоит пережить множество
+              испытаний и приключений.
+            </p>
+          </a>
+        </div>
+        <div class="main__films-grade">
+          <p>8.4</p>
+          <img src="./images/star.png" alt="" width="20" height="20" />
+        </div>
+      </div>
+      <div class="main__films-one">
+        <a href="./blocks/pirates/pirates.html">
+          <img src="./images/pirates.webp" alt="" />
+        </a>
+        <div class="main__films-text">
+          <a href="./blocks/pirates/pirates.html">
+            <h3>Пираты Карибского моря: На краю света</h3>
+            <h4>2007</h4>
+            <p class="none">США</p>
+            <p class="text">
+              Новые приключения Джека Воробья и его друзей Уилла Тернера и
+              Элизабет Суонн. На этот раз Уиллу и Элизабет придется объединиться
+              с самим Капитаном Барбоссой для того, чтобы отправиться на край
+              света и спасти своего друга — Джека. Ситуация осложняется тем, что
+              Элизабет попадает к сингапурским пиратам
+            </p>
+          </a>
+        </div>
+        <div class="main__films-grade">
+          <p>8.1</p>
+          <img src="./images/star.png" alt="" width="20" height="20" />
+        </div>
+      </div>
+      <div class="main__films-one">
+        <a href="./blocks/indiana-jones/indiana-jones.html">
+          <img src="./images/indiana-jones.webp" alt="" />
+        </a>
+        <div class="main__films-text">
+          <a href="./blocks/indiana-jones/indiana-jones.html">
+            <h3>Индиана Джонс и последний крестовый поход</h3>
+            <h4>1989</h4>
+            <p class="none">США</p>
+            <p class="text">
+              На этот раз бесстрашный Индиана разыскивает самую таинственную
+              реликвию в истории человечества — Святой Грааль. В этом археологу
+              помогает его отец, профессор Джонс старший. Теперь под бдительным
+              оком своего отца Индиане предстоит совершить много благородных
+              подвигов и потрясающих открытий. В новых странствиях храброму
+              археологу доведется добыть чашу, которую держал в руках Иисус
+              Христос и получить автограф… самого Адольфа Гитлера.
+            </p>
+          </a>
+        </div>
+        <div class="main__films-grade">
+          <p>8.1</p>
+          <img src="./images/star.png" alt="" width="20" height="20" />
+        </div>
+      </div>
+      <div class="main__films-one">
+        <a href="./blocks/survivor/survivor.html">
+          <img src="./images/survivor.jpg" alt="" />
+        </a>
+        <div class="main__films-text">
+          <a href="./blocks/survivor/survivor.html">
+            <h3>Выживший</h3>
+            <h4>2015</h4>
+            <p class="none">США</p>
+            <p class="text">
+              Охотник Хью Гласс серьезно ранен на неизведанных просторах
+              американского Дикого Запада. Товарищ Хью по отряду покорителей
+              новых земель Джон Фицжеральд предательски оставляет его умирать в
+              одиночестве. Теперь у Гласса осталось только одно оружие – его
+              сила воли. Он готов бросить вызов первобытной природе, суровой
+              зиме и враждебным племенам индейцев, только чтобы выжить и
+              отомстить Фицжеральду.
+            </p>
+          </a>
+        </div>
+        <div class="main__films-grade">
+          <p>7.8</p>
+          <img src="./images/star.png" alt="" width="20" height="20" />
+        </div>
+      </div>
+      <!-- </div> -->
+
+      <!-- <div class="main__films "> -->
+      <div class="main__films-one">
+        <a href="./blocks/timeFirst/timeFirst.html">
+          <img src="./images/timeFirst.webp" alt="" />
+        </a>
+        <div class="main__films-text">
+          <a href="./blocks/timeFirst/timeFirst.html">
+            <h3>Время первых</h3>
+            <h4>2017</h4>
+            <p class="none">Россия</p>
+            <p class="text">
+              1960-е, разгар холодной войны. Две супердержавы СССР и США бьются
+              за первенство в космической гонке. Пока СССР впереди, на очереди —
+              выход человека в открытый космос. За две недели до старта
+              взрывается тестовый корабль. Времени на выявление причин нет.
+              Опытный военный лётчик Павел Беляев и его напарник Алексей Леонов,
+              необстрелянный и горячий, мечтающий о подвиге, — два человека,
+              готовые шагнуть в неизвестность. Но никто не мог даже предположить
+              всего, с чем им предстояло столкнуться в полёте. В этой миссии
+              всё, что только могло, пошло не так.
+            </p>
+          </a>
+        </div>
+        <div class="main__films-grade">
+          <p>7.5</p>
+          <img src="./images/star.png" alt="" width="20" height="20" />
+        </div>
+      </div>
+
+      <div class="main__films-one">
+        <a href="./blocks/pioneers/pioneers.html">
+          <img src="./images/pioneers.webp" alt="" />
+        </a>
+        <div class="main__films-text">
+          <a href="./blocks/pioneers/pioneers.html">
+            <h3>Частное пионерское. Ура, каникулы!!!</h3>
+            <h4>2013</h4>
+            <p class="none">Россия</p>
+            <p class="text">
+              Мишка и его верный друг Димка – школьники. Они готовятся к
+              празднованию дня рождения пионерской организации. На рыбалке Мишка
+              падает в реку, но его спасает бездомная собака, с которой ребята
+              очень подружились... Неожиданно собака попадает к скорняку, и
+              только помощь друзей может избавить её от неминуемой гибели. Перед
+              Мишкой и Димкой встает непростой выбор - участие в пионерском
+              празднике или спасение собаки ... Долг, дружба, любовь... Что
+              важнее?
+            </p>
+          </a>
+        </div>
+        <div class="main__films-grade">
+          <p>7.4</p>
+          <img src="./images/star.png" alt="" width="20" height="20" />
+        </div>
+      </div>
+      <div class="main__films-one">
+        <a href="./blocks/whiteFang/whiteFang.html">
+          <img src="./images/whiteFang.webp" alt="" />
+        </a>
+        <div class="main__films-text">
+          <a href="./blocks/whiteFang/whiteFang.html">
+            <h3>Белый клык</h3>
+            <h4>1991</h4>
+            <p class="none">США</p>
+            <p class="text">
+              История о волке Белый клык, который остался сиротой, после того
+              как охотник убил его мать и юноше по имени Джек, прибывшем на
+              Клондайк во времена Золотой Лихорадки на участок, оставленный ему
+              в наследство отцом... Джек и Белый Клык то встречаются, то
+              расстаются, то вновь обретают друг друга. Эта захватывающая
+              история дружбы мальчика и волка будет интересна мальчишкам,
+              увлекающимся приключениями.
+            </p>
+          </a>
+        </div>
+        <div class="main__films-grade">
+          <p>7.8</p>
+          <img src="./images/star.png" alt="" width="20" height="20" />
+        </div>
+      </div>
+      <div class="main__films-one">
+        <a href="./blocks/music/music.html">
+          <img src="./images/music.webp" alt="" />
+        </a>
+        <div class="main__films-text">
+          <a href="./blocks/music/music.html">
+            <h3>Бременские музыканты</h3>
+            <h4>2023</h4>
+            <p class="none">Россия</p>
+            <p class="text">
+              Трубадур и его друзья-самозванцы — Пес, Кошка, Осел и
+              самовлюбленный Петух — объединились, чтобы совершить подвиг.
+              Прежде всего они должны рассмешить дочь Короля, но встреча с
+              Принцессой грозит опасным приключением. Против Трубадура и его
+              друзей — коварные враги, интриги и ловушки, но за любовь надо
+              сражаться. А тут еще Принцесса сбежала из дворца. В одном клубке —
+              преступные схемы Разбойников, интриги Сыщика, капризы и тайны
+              королевской семейки, но веселые музыканты с неутомимым Трубадуром
+              заставят всех плясать под свою дудку.
+            </p>
+          </a>
+        </div>
+        <div class="main__films-grade">
+          <p>7.3</p>
+          <img src="./images/star.png" alt="" width="20" height="20" />
+        </div>
+      </div>
+      <div class="main__films-one">
+        <a href="./blocks/doctor/doctor.html">
+          <img src="./images/doctor.jpg" alt="" />
+        </a>
+        <div class="main__films-text">
+          <a href="./blocks/doctor/doctor.html">
+            <h3>Лекарь: Ученик Авиценны</h3>
+            <h4>2013</h4>
+            <p class="none">Германия</p>
+            <p class="text">
+              Англия, XI век. Мать десятилетнего Роба Коула умирает в страшных
+              мучениях: никто не знает ни природы её болезни, ни лекарства
+              против неё. Маленький Роб, потрясенный до глубины души, во что бы
+              то ни стало стремится разгадать эту тайну. Ему суждено пройти
+              долгий путь, от Англии до Персии, его учителями становятся сначала
+              обыкновенный шарлатан Барбер, а потом - великий лекарь Авиценна.
+              Мудрый учитель видит в Робе необыкновенный талант к медицине, но
+              советует ему не спешить делать вещи, которые не соответствуют
+              веку. Но Роб ни перед чем не останавливается в своем желании
+              научиться спасать людей от смерти, и над его собственной жизнью
+              нависает угроза, ведь он дважды пошел против предрассудков:
+              использовал для научных исследований тело человека и полюбил
+              женщину, отданную в жены другому.
+            </p>
+          </a>
+        </div>
+        <div class="main__films-grade">
+          <p>8.1</p>
+          <img src="./images/star.png" alt="" width="20" height="20" />
+        </div>
+      </div>
+      <!-- </div> -->
+    </main>
+    <footer>
+      <!-- <div class="footer__nav">
+        <a class="first" href="">1</a>
+        <a class="second" href="">2</a>
+      </div> -->
+    </footer>
+    <script src="code.js"></script>
+  </body>
+</html>
