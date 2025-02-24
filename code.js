@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   let content = document.querySelector(".main");
-  let footer = document.querySelector("footer");
-  let header = document.querySelector("header");
+  let headerFilter = document.querySelector(".header__filter");
 
   const itemsPerPage = 5;
   let currentPage = 0;
@@ -16,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateActiveButtonStates();
   }
 
-  function createPagination(container) {
+  function createPagination() {
     let totalPages = Math.ceil(items.length / itemsPerPage);
     let paginationContainer = document.createElement("div");
     paginationContainer.classList.add("pagination");
@@ -33,26 +32,26 @@ document.addEventListener("DOMContentLoaded", function () {
       paginationContainer.appendChild(pageButton);
     }
 
-    container.appendChild(paginationContainer);
+    return paginationContainer;
   }
 
   function updateActiveButtonStates() {
-    let allDivButton = document.querySelectorAll(".pagination ");
-    for (let divButton of allDivButton) {
-      let buttons = divButton.querySelectorAll("button");
-      for (let btn of buttons) {
+    let allPaginations = document.querySelectorAll(".pagination");
+    allPaginations.forEach((pagination) => {
+      let buttons = pagination.querySelectorAll("button");
+      buttons.forEach((btn) => {
         if (Number(btn.dataset.index) === currentPage) {
           btn.classList.add("active");
         } else {
           btn.classList.remove("active");
         }
-      }
-    }
+      });
+    });
   }
 
-  // Создание двух независимых блоков пагинации
-  createPagination(footer);
-  createPagination(header);
+  // Вставляем пагинацию в начало и конец .main
+  headerFilter.appendChild(createPagination());
+  content.appendChild(createPagination());
 
   showPage(currentPage);
 
@@ -63,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   let button = document.querySelector("#sort");
 
-  button.addEventListener("click", function () {
+  button.addEventListener("click", function (e) {
     let year = document.querySelector("#year").value;
     let rating = document.querySelector("#rating").value;
     let country = document.querySelector("#country").value;
@@ -85,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
       let ratingMatch = rating === "all" || dataRating === rating;
       let countryMatch = country === "all" || dataCountry === country;
 
-      console.log(film);
       if (yearMatch && ratingMatch && countryMatch) {
         content.innerHTML += `
         

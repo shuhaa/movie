@@ -199,24 +199,24 @@ body .header__text a .button {
 }
 @media (max-width: 768px) {
   body .header__text a .button {
-    top: 140px;
+    top: 90px;
     width: 50px;
     height: 50px;
     left: 20px;
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 450px) {
   body .header__text a .button {
     width: 35px;
     height: 35px;
-    top: 130px;
+    top: 120px;
   }
 }
 @media (max-width: 375px) {
   body .header__text a .button {
     width: 35px;
     height: 35px;
-    top: 130px;
+    top: 85px;
     left: 20px;
   }
 }
@@ -228,21 +228,26 @@ body .header__text p {
   font-weight: 500;
   font-size: 18px;
 }
+@media (max-width: 768px) {
+  body .header__text p {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  body .header__text p {
+    width: 100%;
+    text-align: center;
+  }
+}
 @media (max-width: 425px) {
   body .header__text p {
     font-size: 16px;
   }
 }
-@media (max-width: 768px) {
-  body .header__text p {
-    width: 300px;
-    margin-left: 25%;
-  }
-}
 @media (max-width: 375px) {
   body .header__text p {
-    font-size: 16px;
-    width: 200px;
+    font-size: 14px;
   }
 }
 body .header__text h1 {
@@ -262,12 +267,12 @@ body .header__text h1 {
   body .header__text h1 {
     padding-top: 1rem;
     margin-bottom: 0;
-    font-size: 50px;
+    font-size: 30px;
   }
 }
 @media (max-width: 375px) {
   body .header__text h1 {
-    font-size: 27px;
+    font-size: 20px;
   }
 }
 body .mains {
@@ -276,6 +281,21 @@ body .mains {
   background-color: rgba(194, 194, 194, 0.3);
   width: 95%;
   margin-left: 2.5%;
+}
+@media (max-width: 760px) {
+  body .mains {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 450px) {
+  body .mains {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 375px) {
+  body .mains {
+    margin-top: 30px;
+  }
 }
 body .mains h1 {
   color: #ffc600;
